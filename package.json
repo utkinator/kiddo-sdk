@@ -1,0 +1,27 @@
+{
+  "name": "kiddo-sdk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "bin/cli.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/utkinator/kiddo-sdk.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/utkinator/kiddo-sdk/issues"
+  },
+  "homepage": "https://github.com/utkinator/kiddo-sdk#readme",
+  "dependencies": {
+    "kiddo-runtime": "file:../kiddo-runtime",
+    "ora": "^6.0.1",
+    "yargs": "^17.1.1-candidate.0"
+  }
+}

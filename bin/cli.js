@@ -54,8 +54,6 @@ const argv = yargs(hideBin(process.argv))
             try {
                 const result = await publishApplication(process.cwd(), opts)
 
-                console.log('^^^^',result)
-
                 progress.info(`Kiddo application publish metadata: ${JSON.stringify(result)}`)
                 progress.succeed('Kiddo application publishing successfully completed')
             } catch (error) {

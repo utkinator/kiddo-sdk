@@ -6,7 +6,8 @@ import { hideBin } from 'yargs/helpers'
 import ora from 'ora'
 
 import {
-    buildApplication
+    buildApplication,
+    publishApplication
 } from '../lib/application/index.js'
 
 const pkgJson = JSON.parse(
@@ -34,6 +35,31 @@ const argv = yargs(hideBin(process.argv))
                 progress.succeed('Kiddo application bundling successfully completed')
             } catch (error) {
                 progress.fail(`Error happened while bundling kiddo application: ${error.message}`)
+
+                process.exitCode = 1
+            } finally {
+                progress.stop()
+            }
+        }
+    )
+    .command(
+        'publish-application',
+        `Publish the application bundle.`,
+        async (opts) => {
+            const progress = ora({
+                isSilent: opts['no-progress'] === true,
+                text: 'Publishing kiddo application...'
+            }).start()
+
+            try {
+                const result = await publishApplication(process.cwd(), opts)
+
+                console.log('^^^^',result)
+
+                progress.info(`Kiddo application publish metadata: ${JSON.stringify(result)}`)
+                progress.succeed('Kiddo application publishing successfully completed')
+            } catch (error) {
+                progress.fail(`Error happened while publishing kiddo application: ${error.message}`)
 
                 process.exitCode = 1
             } finally {

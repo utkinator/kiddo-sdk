@@ -8,7 +8,6 @@ const pkgJson = JSON.parse(
 
 export const makeCommonMetadata = () => {
     return {
-        buildTimestamp: (new Date()).toISOString(),
         buildTool: {
             name: pkgJson.name,
             version: pkgJson.version
